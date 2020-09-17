@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import {decryptToken, makeRandomSalt, makeToken, seedCrypto} from "./cryptoToken";
+import {decryptToken, makeRandomSalt, makeToken, seedCrypto} from "./tokenCrypto";
 
 const authEndpoint = express.Router();
 
@@ -36,7 +36,7 @@ authEndpoint.post('/',bodyParser.json(), (req, res) => {
 
     res.cookie('session', token, { httpOnly: true , signed: true, secure: req.protocol !== 'http'});
 
-    res.status(200).end(token);
+    res.status(200).end();
 })
 
 

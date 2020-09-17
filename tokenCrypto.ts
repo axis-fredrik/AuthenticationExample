@@ -44,7 +44,7 @@ const padToken = (jsonToken, padding) => {
         throw 'token too large';
     }
     return { data: jsonToken,
-             padding: new Array(padding-t.length).fill('?').join('')
+             padding: new Array(padding-t.length).fill(0).join('')
            };
 }
 
